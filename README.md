@@ -25,7 +25,7 @@ Das Programm `EssenBeiMeiser.exe` verfügt über eine grafische Oberfläche und 
 
 ### Bestellung durchführen
 
-![ScreenShot](https://raw.github.com/meiser/meiser-essen-client/master/images/Speiseeplan.png)
+![ScreenShot](https://raw.github.com/meiser/meiser-essen-client/master/images/Speiseplan.png)
 
 ### Bestellung aktualisieren
 
