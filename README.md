@@ -1,14 +1,10 @@
 meiser-essen-client
 ===================
 
-Essenbestellung vom PC aus
-
-# __Programm zur Durchführung der Essenbestellung__
-
 ## Idee
 
-Das Programm `EssenBeiMeiser.exe` verbindet ermöglicht durch die Verwendung von Active Directory eine bequeme Durchführung der Essenbestellung am
-am PC.
+Das Programm `EssenBeiMeiser.exe` ermöglicht durch die Verwendung von Active Directory eine bequeme Durchführung der Essenbestellung am
+am PC. Die Essenbestellung jedes Domainen-Nutzers wird in einer SQL-Datenbank abgespeichert und am Ende des Bestellzeitraums per Crystal Report verschickt.
 
 ## Installation
 
