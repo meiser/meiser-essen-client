@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="C:\Lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1120491560"/>
+  <Params Value=" -MObjFPC -Scghi -CX -O1 -Twince -Parm -Xs -XX -WG -vewnhi -FiC:\Sites\meiser-essen-client\lib\arm-wince -FuC:\Lazarus\lcl\units\arm-wince\wince -FuC:\Lazarus\lcl\units\arm-wince -FuC:\Lazarus\components\lazutils\lib\arm-wince -FuC:\Lazarus\packager\units\arm-wince -FuC:\Sites\meiser-essen-client\ -FUC:\Sites\meiser-essen-client\lib\arm-wince\ -l -dLCL -dLCLwince meiser_essen_client.lpr"/>
+</CONFIG>
