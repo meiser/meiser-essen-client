@@ -121,6 +121,19 @@ begin
      end;
 end;
 
+function IsCorrectOrderTime(): boolean;
+var
+   my_date: TDateTime;
+begin
+   my_date := Now;
+   if (DayOfTheWeek(my_date) = DayFriday) and (HourOf(my_date) >= 14)  then
+    begin
+     showmessage('Es ist Freitag nach 14 Uhr und die Bestellung kann nicht mehr angenommen werden!');
+     Exit(FALSE);
+    end;
+   Exit(TRUE);
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 var
   dom:integer;
@@ -156,6 +169,8 @@ begin
           self.Caption:= ' Essenbestellung für KW '+ IntToStr(CWOfOrder);
           FullUserNameWithEmail.Caption:= Firstname + ' '+ LastName+' ('+ Email+ ')';
 
+          if not IsCorrectOrderTime() then
+             Application.terminate;
         end
      else
         begin
@@ -187,7 +202,7 @@ begin
       begin
        ReadOnly := True;
        SQL.Clear;
-       SQL.Add('select COUNT(*) AS present from lunch_orders where calendar_week ='+IntToStr(CWOfOrder)+' and mail='''+Email+''''+' and LastName='''+LastName+''''+' and FirstName='''+FirstName+'''');
+       SQL.Add('select COUNT(*) AS present from lunch_orders where year = '+IntToStr(YearOf(StartWeekOfOrder))+ ' and calendar_week ='+IntToStr(CWOfOrder)+' and mail='''+Email+''''+' and LastName='''+LastName+''''+' and FirstName='''+FirstName+'''');
        //SQL.Add('select COUNT(*) AS present from lunch_orders where calendar_week ='+IntToStr(CWOfOrder)+' and mail='''+Email+'''');
        Open;
        while not eof do
@@ -257,6 +272,9 @@ begin
      if correct = True then
         begin
 
+             if not IsCorrectOrderTime() then
+                Application.terminate;
+
              CreateFConnection;
              CreateFTransaction;
              Fquery := TSQLQuery.create(nil);
@@ -279,7 +297,7 @@ begin
               else
                begin
                 saveMessage:= 'Die Bestellung wurde aktualisiert.';
-                SQL.Add('Delete from lunch_orders where calendar_week ='+IntToStr(CWOfOrder)+' and mail='''+Email+''''+' and LastName='''+LastName+''''+' and FirstName='''+FirstName+'''');
+                SQL.Add('Delete from lunch_orders where year ='+IntToStr(YearOf(StartWeekOfOrder))+' and calendar_week ='+IntToStr(CWOfOrder)+' and mail='''+Email+''''+' and LastName='''+LastName+''''+' and FirstName='''+FirstName+'''');
 
                end;
 
@@ -488,7 +506,6 @@ begin
         end;
 end;
 
-
 procedure TForm1.Timer1Timer(Sender: TObject);
 //var
    //dom:integer;
@@ -553,5 +570,6 @@ begin
 
       end;
 end;
+
 
 end.
