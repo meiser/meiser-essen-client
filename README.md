@@ -25,8 +25,12 @@ Das Programm `EssenBeiMeiser.exe` verfügt über eine grafische Oberfläche und 
 
 ### Bestellung durchführen
 
-![ScreenShot](https://raw.github.com/meiser/meiser-essen-client/master/images/Speiseeplan.png)
+![ScreenShot1](https://raw.github.com/meiser/meiser-essen-client/master/images/Speiseplan.png)
 
 ### Bestellung aktualisieren
 
-![ScreenShot](https://raw.github.com/meiser/meiser-essen-client/master/images/BestellungAktualisieren.png)
+![ScreenShot2](https://raw.github.com/meiser/meiser-essen-client/master/images/BestellungAktualisieren.png)
+
+### Datenbankverbindung
+
+Die Datenbankverbindung wird per ODBC-Connection String innerhalb der Datei [`meiserdb.pas`](https://raw.github.com/meiser/meiser-essen-client/master/meiserdb.pas "meiserdb.pas") konfiguriert. Bitte Änderungen dort entsprechend vornehmen.
